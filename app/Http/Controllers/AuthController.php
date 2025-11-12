@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -29,6 +30,21 @@ class AuthController extends Controller
                 'text_password.max' => 'A senha deve ter pelo menos :max caracteres',
             ],
         );
+
+        // Get User input
+        $username = $request->input('text_username');
+        $password = $request->input('text_password');
+
+        // Test database connection
+        try {
+            DB::connection()->getPdo();
+
+            echo 'Connection is OK!';
+        } catch (\PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+        }
+
+        echo 'FIM!';
     }
 
     public function logout()
