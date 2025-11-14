@@ -15,7 +15,7 @@
                 <div class="col text-end">
                     <a href="{{ route('home') }}" class="btn btn-outline-danger">
                         <i class="fa-solid fa-xmark"></i>
-                    </a>            
+                    </a>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </form>
-            
+
         </div>
     </div>
 </div>
