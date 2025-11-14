@@ -138,12 +138,18 @@ class MainController extends Controller
         // Load note
         $note = Note::find($id);
 
-        // 1. hard delete
+        // 1. hard delete (within property in model)
         // $note->delete();
 
         // 2. Soft delete
-        $note->deleted_at = date('Y-m-d H:i:s');
-        $note->save();
+        // $note->deleted_at = date('Y-m-d H:i:s');
+        // $note->save();
+
+        // 3. Soft delete (property in model)
+        $note->delete();
+
+        // 4. Hard delete (property in model)
+        // $note->forceDelete();
 
         // Redirect to home
         return redirect()->route('home');
